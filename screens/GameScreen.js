@@ -1,58 +1,29 @@
 import React from 'react';
 import { ScrollView, StyleSheet,
-    Text, FlatList, Button, Alert, TouchableOpacity, Image,
+    Text, FlatList, Button, Alert, TouchableOpacity,
     View } from 'react-native';
 import { MonoText } from '../components/StyledText';
 
 export default class LinksScreen extends React.Component {
   static navigationOptions = {
-    title: 'Games',
+    title: 'Links',
   };
 
   render() {
     return (
       <ScrollView style={styles.container}>
           <View style={{flex: 1}}>
-              <Text style={styles.getStartedText}>Get started by selecting one of the options below!</Text>
+              <Text style={styles.getStartedText}>This is the first game!</Text>
               <Text style={styles.getStartedText}>
                   Get Learning!
               </Text>
               <TouchableOpacity style={[styles.bluebutton, styles.gamebutton]} onPress={this.startGame1}
                       underlayColor="#fff">
-                  <Image
-                      source={require('../assets/images/icon.png')}
-                      style={styles.leftgameicon}
-                  />
-                  <View
-                      style={{
-                          borderLeftWidth: 1,
-                          borderLeftColor: 'white',
-                          position: 'absolute',
-                          left: 40
-                      }}
-                  />
                   <Text style={styles.buttontext}>Game 1</Text>
               </TouchableOpacity>
               <TouchableOpacity style={[styles.purplebutton, styles.gamebutton]} onPress={this.startGame2}
                       underlayColor="#fff">
                   <Text style={styles.buttontext}>Game 2</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity style={[styles.unavailablebutton, styles.gamebutton]}
-                                underlayColor="#fff">
-                  <Text style={styles.buttontext}>Game 3 Coming Soon!</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={[styles.unavailablebutton, styles.gamebutton]}
-                                underlayColor="#fff">
-                  <Text style={styles.buttontext}>Game 4 Coming Soon!</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={[styles.unavailablebutton, styles.gamebutton]}
-                                underlayColor="#fff">
-                  <Text style={styles.buttontext}>Game 5 Coming Soon!</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={[styles.unavailablebutton, styles.gamebutton]}
-                                underlayColor="#fff">
-                  <Text style={styles.buttontext}>Game 6 Coming Soon!</Text>
               </TouchableOpacity>
 
           </View>
@@ -91,10 +62,7 @@ const styles = StyleSheet.create({
         backgroundColor:'purple',
     },
     bluebutton:{
-        backgroundColor:'#0000FF'
-    },
-    unavailablebutton: {
-        backgroundColor:'#BBB'
+        backgroundColor:'#0000FF',
     },
     item: {
         padding: 10,
@@ -116,13 +84,12 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginBottom: 20,
     },
-    leftgameicon: {
-        position: 'absolute',
-        width: 35,
-        height: 35,
-        top: 17,
-        left: 17,
+    welcomeImage: {
+        width: 100,
+        height: 80,
         resizeMode: 'contain',
+        marginTop: 3,
+        marginLeft: -10,
     },
     getStartedContainer: {
         alignItems: 'center',

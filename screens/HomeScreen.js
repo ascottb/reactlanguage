@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { WebBrowser } from 'expo';
 
+
 import { MonoText } from '../components/StyledText';
 
 export default class HomeScreen extends React.Component {
@@ -20,46 +21,31 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+          <View style={styles.tabBarInfoContainer}>
+              <Text style={styles.tabBarInfoText}>Welcome to:</Text>
+
+              <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
+                  <MonoText style={styles.codeHighlightText}>Spanish Language Learning Games!</MonoText>
+              </View>
+          </View>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.welcomeContainer}>
             <Image
               source={
                 __DEV__
-                  ? require('../assets/images/robot-dev.png')
-                  : require('../assets/images/robot-prod.png')
+                  ? require('../assets/images/icon.png')
+                  : require('../assets/images/icon2.png')
               }
               style={styles.welcomeImage}
             />
           </View>
-
           <View style={styles.getStartedContainer}>
-            {this._maybeRenderDevelopmentModeWarning()}
-
-            <Text style={styles.getStartedText}>Get started by opening</Text>
-
-            <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-              <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
-            </View>
-
+            <Text style={styles.getStartedText}>Get started by selecting the Games page below!</Text>
             <Text style={styles.getStartedText}>
               Woo!
             </Text>
           </View>
-
-          <View style={styles.helpContainer}>
-            <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
-              <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
-            </TouchableOpacity>
-          </View>
         </ScrollView>
-
-        <View style={styles.tabBarInfoContainer}>
-          <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
-
-          <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-            <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
-          </View>
-        </View>
       </View>
     );
   }
@@ -74,8 +60,7 @@ export default class HomeScreen extends React.Component {
 
       return (
         <Text style={styles.developmentModeText}>
-          Development mode is enabled, your app will be slower but you can use useful development
-          tools. {learnMoreButton}
+          Development mode is enabled!{learnMoreButton}
         </Text>
       );
     } else {
@@ -147,8 +132,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   tabBarInfoContainer: {
-    position: 'absolute',
-    bottom: 0,
+    position: 'relative',
+    top: 0,
     left: 0,
     right: 0,
     ...Platform.select({
@@ -163,7 +148,7 @@ const styles = StyleSheet.create({
       },
     }),
     alignItems: 'center',
-    backgroundColor: '#fbfbfb',
+    backgroundColor: '#e5e5e5',
     paddingVertical: 20,
   },
   tabBarInfoText: {
