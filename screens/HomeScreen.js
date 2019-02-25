@@ -45,6 +45,9 @@ export default class HomeScreen extends React.Component {
               Woo!
             </Text>
           </View>
+            <View style={styles.getStartedContainer}>
+                <Text style={styles.getStartedText}>You are at Level 1 with 0xp!</Text>
+            </View>
         </ScrollView>
       </View>
     );

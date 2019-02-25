@@ -4,9 +4,9 @@ import { ScrollView, StyleSheet,
     View } from 'react-native';
 import { MonoText } from '../components/StyledText';
 
-export default class LinksScreen extends React.Component {
+export default class GameScreen extends React.Component {
   static navigationOptions = {
-    title: 'Links',
+    title: 'Game1',
   };
 
   render() {

@@ -3,13 +3,17 @@ import { ScrollView, StyleSheet,
     Text, FlatList, Button, Alert, TouchableOpacity, Image,
     View } from 'react-native';
 import { MonoText } from '../components/StyledText';
+import GameScreen from "./GameScreen";
+import {createStackNavigator, createSwitchNavigator} from 'react-navigation';
 
 export default class LinksScreen extends React.Component {
   static navigationOptions = {
     title: 'Games',
   };
 
+
   render() {
+      const {navigate} = this.props.navigation;
     return (
       <ScrollView style={styles.container}>
           <View style={{flex: 1}}>
@@ -33,7 +37,7 @@ export default class LinksScreen extends React.Component {
                   />
                   <Text style={styles.buttontext}>Game 1</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={[styles.purplebutton, styles.gamebutton]} onPress={this.startGame2}
+              <TouchableOpacity style={[styles.purplebutton, styles.gamebutton]} onPress={() => navigate('Game1')}
                       underlayColor="#fff">
                   <Text style={styles.buttontext}>Game 2</Text>
               </TouchableOpacity>
@@ -62,6 +66,7 @@ export default class LinksScreen extends React.Component {
 
   startGame1() {
       //Do nothing for now
+
       Alert.alert('You tapped on game1!')
   }
   startGame2() {
